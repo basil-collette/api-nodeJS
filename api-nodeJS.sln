@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32210.238
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "api-nodeJS", "api-nodeJS\api-nodeJS.njsproj", "{D2A63382-1083-486B-8423-74ACEF1B854F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D2A63382-1083-486B-8423-74ACEF1B854F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D2A63382-1083-486B-8423-74ACEF1B854F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D2A63382-1083-486B-8423-74ACEF1B854F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D2A63382-1083-486B-8423-74ACEF1B854F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BD783D79-14A1-4A8B-AE43-BC19631B259E}
+	EndGlobalSection
+EndGlobal
