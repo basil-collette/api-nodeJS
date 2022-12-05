@@ -1,9 +1,0 @@
-{
-  "name": "api-node-js",
-  "version": "0.0.0",
-  "description": "api-nodeJS",
-  "main": "server.js",
-  "author": {
-    "name": ""
-  }
-}
