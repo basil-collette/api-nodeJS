@@ -11,12 +11,14 @@ module.exports = class UserController {
     constructor() {
         this.connexion = require('../database/sequelize');
 
+        /*
         this.connexion.authenticate().then(() => {
             console.log('Database Connection has been established successfully.');
         }).catch((error) => {
             console.error('Unable to connect to the database: ', error);
         });
-
+        */
+       
         this.userModel = require("../models/user.model")(this.connexion);
     }
 
