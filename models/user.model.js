@@ -13,7 +13,8 @@ module.exports = (sequelize, DataTypes) => {
             allowNull: false
         },
         roles: {
-            type: Sequelize.STRING,
+            type: Sequelize.ARRAY(Sequelize.STRING),
+            defaultValue: ["ROLE_USER"],
             allowNull: true
         },
         password: {

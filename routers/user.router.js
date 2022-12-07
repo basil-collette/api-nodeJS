@@ -18,7 +18,7 @@ router.post("/register", async function (req, res, next) {
         userFields.createdAt = date;
         userFields.updatedAt = date;
         if(!userFields.roles) {
-            userFields.roles = [];
+            userFields.roles = ["ROLE_USER"];
         }
 
         let user = await UserController.register(userFields);

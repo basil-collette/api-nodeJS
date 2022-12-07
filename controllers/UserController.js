@@ -33,7 +33,8 @@ module.exports = class UserController {
             "password": hashedPassword,
             "createdAt": userFields.createdAt,
             "updatedAt": userFields.updatedAt,
-            "groupeId": userFields.groupeId
+            "groupeId": userFields.groupeId,
+            "roles": userFields.roles,
         });
 
         return user;
