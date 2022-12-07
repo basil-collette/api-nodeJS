@@ -1,22 +1,36 @@
 'use strict';
 const createError = require('http-errors');
+const helmet = require('helmet');
 const express = require('express');
-const path = require('path');
-const cookieParser = require('cookie-parser');
-const debug = require('debug')('apiserver:server');
+const http = require('http');
+require('dotenv').config();
+
+//SETUP ____________________________________________________________________ SETUP
 
 const app = express();
 
-//app.use(logger('dev'));
+app.use(helmet());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
 
-const indexRouter = require('./routes/index');
+var port = normalizePort(process.env.PORT || '3000');
+app.set('port', port);
+
+const server = http.createServer(app);
+
+server.listen(port);
+server.on('error', onError);
+
+//ROUTES __________________________________________________________________ ROUTES
+
+const indexRouter = require('./routers/index.router');
 app.use('/', indexRouter);
-const userRouter = require('./routes/user');
+const userRouter = require('./routers/user.router');
 app.use('/user', userRouter);
+const groupeRouter = require('./routers/groupe.router');
+app.use('/groupe', groupeRouter);
+
+// ERRORS __________________________________________________________________ ERRORS
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
@@ -37,16 +51,7 @@ app.use(function (err, req, res, next) {
     res.send(error);
 });
 
-const http = require('http');
-const server = http.createServer(app);
-
-var port = normalizePort(process.env.PORT || '3000');
-app.set('port', port);
-
-// Listen on provided port, on all network interfaces.
-server.listen(port);
-server.on('error', onError);
-server.on('listening', onListening);
+//FUNCTIONS _______________________________________________________________ FUNCTIONS
 
 // Normalize a port into a number, string, or false.
 function normalizePort(val) {
@@ -86,13 +91,4 @@ function onError(error) {
         default:
             throw error;
     }
-}
-
-// Event listener for HTTP server "listening" event.
-function onListening() {
-    var addr = server.address();
-    var bind = typeof addr === 'string'
-        ? 'pipe ' + addr
-        : 'port ' + addr.port;
-    debug('Listening on ' + bind);
 }

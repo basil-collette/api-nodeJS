@@ -44,7 +44,7 @@ module.exports = (sequelize, DataTypes) => {
             allowNull: false,
             field: 'last_name'
         },
-        groupId: {
+        groupeId: {
             type: Sequelize.NUMBER,
             allowNull: true,
             field: 'groupe_id'
@@ -52,4 +52,10 @@ module.exports = (sequelize, DataTypes) => {
     }, {
         tableName: 'user'
     });
+
+    /*
+    userModel.associate = function (models) {
+        // define your relations 
+    }
+    */
 };
