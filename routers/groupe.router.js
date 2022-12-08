@@ -82,11 +82,13 @@ router.post('/setusers/:id', async (req, res, next) => {
         if (authorizedUser.roles.includes('ROLE_ADMIN')) {
 
             if (req.body.users) {
+                await UserController.updateGroupUsers(parseInt(req.params.id), req.body.users);
+                /*
                 await UserController.update(
                     { groupeId: parseInt(req.params.id) },
                     { id: { [Op.in]: req.body.users } }
                 );
-    
+                */
                 res.status(200);
                 res.send('users_added_to_group');
             } else {

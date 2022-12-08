@@ -138,6 +138,16 @@ module.exports = class UserController {
         );
     }
 
+    async updateGroupUsers(groupId, userList) {
+        let query =
+            `UPDATE user SET 
+                groupe_id = case 
+                When groupe_id = ${ groupId } AND id NOT IN (${ userList }) then null
+                else 1
+            end`;
+        return await this.groupeModel.query(query, { type: QueryTypes.UPDATE });
+    }
+
     //DELETE __________________________________________________________________ DELETE
 
     async delete(wheres) {

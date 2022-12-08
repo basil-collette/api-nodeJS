@@ -18,6 +18,8 @@ module.exports = class GroupeController {
         this.groupeModel = require("../models/groupe.model")(this.connexion, Sequelize.DataTypes);
     }
 
+    // GET _________________________________________________________________________ GET
+
     async getAll() {
         return await this.groupeModel.findAll({
             attributes: ['name']
@@ -52,5 +54,4 @@ module.exports = class GroupeController {
     async getByFilters(filters) {
         return await this.groupeModel.findOne({ where: filters });
     }
-
 }
