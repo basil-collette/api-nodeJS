@@ -54,7 +54,11 @@ module.exports = class UserController {
                 const expireIn = 24 * 60 * 60; //hour * minutes * seconds
                 const token = jwt.sign({
                     username: user.username,
-                    password: user.password
+                    password: user.password,
+                    /*
+                    id: user.id,
+                    roles: user.roles,
+                    */
                 },
                 process.env.TOKEN_KEY,
                 {
