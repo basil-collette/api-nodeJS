@@ -9,11 +9,13 @@ module.exports = class GroupeController {
     constructor() {
         this.connexion = require('../database/sequelize');
 
+        /*
         this.connexion.authenticate().then(() => {
             console.log('Database Connection has been established successfully.');
         }).catch((error) => {
             console.error('Unable to connect to the database: ', error);
         });
+        */
 
         this.groupeModel = require("../models/groupe.model")(this.connexion, Sequelize.DataTypes);
     }
@@ -54,4 +56,25 @@ module.exports = class GroupeController {
     async getByFilters(filters) {
         return await this.groupeModel.findOne({ where: filters });
     }
+
+    // UPDATE ____________________________________________________________________ UPDATE
+
+    async update(attributes, wheres) {
+
+        return await this.groupeModel.update(
+            attributes,
+            {
+                where: wheres
+            }
+        );
+    }
+
+    //DELETE __________________________________________________________________ DELETE
+
+    async delete(wheres) {
+        return await this.groupeModel.destroy(
+            { where: wheres }
+        );
+    }
+
 }
